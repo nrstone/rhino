@@ -1,1 +1,1 @@
-worker: billybones.py
+web: billybones.py
