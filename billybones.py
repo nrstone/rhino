@@ -1,4 +1,7 @@
 import discord
+import os
+
+bot_token = os.environ["BOT_TOKEN"]
 intents = discord.Intents.none()
 intents.guilds = True
 intents.members = True
@@ -16,4 +19,4 @@ async def on_message(message):
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
-client.run('MTA2ODE5NzAwMDE4NjcwMzg5NA.GBNMtE.boK4WQt86sxmMkLSYX_GadUiIFdrLKjf4fEyeU')
+client.run(bot_token)
