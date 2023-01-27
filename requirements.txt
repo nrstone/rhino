@@ -125,7 +125,6 @@ Sphinx==1.8.4
 spidev==3.5
 spyder==3.3.3
 spyder-kernels==0.2.4
-ssh-import-id==5.7
 testpath==0.4.2
 thonny==3.3.10
 tornado==5.1.1
