@@ -94,7 +94,6 @@ pyOpenSSL==19.0.0
 pyparsing==2.2.0
 pyserial==3.4
 pysmbc==1.0.15.6
-python-apt==1.8.4.3
 python-dateutil==2.7.3
 python-snap7==1.2
 pytz==2019.1
