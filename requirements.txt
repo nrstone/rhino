@@ -108,7 +108,6 @@ requests==2.21.0
 requests-oauthlib==1.0.0
 responses==0.9.0
 roman==2.0.0
-rope==0.10.5
 RPi.GPIO==0.7.0
 RTIMULib==7.2.1
 scrollphat==0.0.7
