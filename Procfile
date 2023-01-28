@@ -1,1 +1,1 @@
-web: Python billybones.py
+worker: python3 billybones.py
