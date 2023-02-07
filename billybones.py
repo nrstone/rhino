@@ -18,6 +18,5 @@ async def on_message(message):
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
-
-message.channel.send("I be Billy Bones!")    
+ 
 client.run(bot_token)
