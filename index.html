@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Bars</title>
+    <style>
+        .scroll-bar {
+            height: 20px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <div class="scroll-bar" style="background-color: {{ scroll_bars['first'].color }};">
+            <input type="range" min="1" max="10" step="1" value="{{ scroll_bars['first'].value }}" name="value" oninput="this.form.submit()">
+            <p>{{ scroll_bars['first'].value }}</p>
+            <p>Last updated: {{ scroll_bars['first'].timestamp }}</p>
+        </div>
+        <div class="scroll-bar" style="background-color: {{ scroll_bars['second'].color }};">
+            <input type="range" min="1" max="10" step="1" value="{{ scroll_bars['second'].value }}" name="value" oninput="this.form.submit()">
+            <p>{{ scroll_bars['second'].value }}</p>
+            <p>Last updated: {{ scroll_bars['second'].timestamp }}</p>
+        </div>
+        <input type="hidden" name="bar" value="first">
+        <input type="hidden" name="bar" value="second">
+    </form>
+</body>
+</html>
