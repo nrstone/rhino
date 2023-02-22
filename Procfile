@@ -1,1 +1,1 @@
-web: gunicorn rhino.py
+web: gunicorn rhino:app
