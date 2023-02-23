@@ -1,37 +1,29 @@
-from datetime import datetime
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template
+import datetime
 
 app = Flask(__name__)
 
-class ScrollBar:
-    def __init__(self, name):
-        self.name = name
-        self.value = 5
-        self.color = self.get_color()
-        self.timestamp = datetime.now().strftime("%I:%M %p")
-
-    def get_color(self):
-        # Calculate the color based on the value
-        red = min(int((self.value / 10) * 255), 255)
-        blue = min(int(((10 - self.value) / 10) * 255), 255)
-        return f"rgb({red}, 0, {blue})"
-
-scroll_bars = {
-    "first": ScrollBar("first"),
-    "second": ScrollBar("second")
-}
-
-@app.route("/", methods=["GET", "POST"])
+@app.route('/')
 def index():
-    if request.method == "POST":
-        bar = request.form["bar"]
-        value = int(request.form["value"])
-        scroll_bars[bar].value = value
-        scroll_bars[bar].color = scroll_bars[bar].get_color()
-        scroll_bars[bar].timestamp = datetime.now().strftime("%I:%M %p")
-        if scroll_bars["first"].value == 10 and scroll_bars["second"].value == 10:
-            return render_template("text_box.html")
-    return render_template("index.html", scroll_bars=scroll_bars)
+    return render_template('index.html')
 
-if __name__ == "__main__":
+@app.route('/update', methods=['POST'])
+def update():
+    value1 = int(request.form['value1'])
+    value2 = int(request.form['value2'])
+    timestamp1 = datetime.datetime.now().strftime("%m/%d/%Y %I:%M %p")
+    timestamp2 = datetime.datetime.now().strftime("%m/%d/%Y %I:%M %p")
+    color1 = get_color(value1)
+    color2 = get_color(value2)
+    if value1 == 10 and value2 == 10:
+        return render_template('input.html')
+    else:
+        return render_template('output.html', value1=value1, value2=value2, color1=color1, color2=color2, timestamp1=timestamp1, timestamp2=timestamp2)
+
+def get_color(value):
+    r = value * 25
+    b = 255 - r
+    return f'rgb({r}, 0, {b})'
+
+if __name__ == '__main__':
     app.run(debug=True)
