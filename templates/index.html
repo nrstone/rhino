@@ -10,26 +10,27 @@
 	</style>
 </head>
 <body>
-	<form method="post" action="/update">
-		<label for="scrollbar1">Scroll Bar 1:</label>
-		<input type="range" id="scrollbar1" name="value1" class="scrollbar" min="1" max="10" oninput="updateColor1()" value="1"><br>
-		<label for="scrollbar2">Scroll Bar 2:</label>
-		<input type="range" id="scrollbar2" name="value2" class="scrollbar" min="1" max="10" oninput="updateColor2()" value="1"><br>
-		<input type="submit" value="Submit">
-	</form>
+	<label for="scrollbar1">Scroll Bar 1:</label>
+	<input type="range" id="scrollbar1" name="value1" class="scrollbar" min="1" max="10" oninput="updateColor1()" value="1"><span id="value1"></span><br>
+	<label for="scrollbar2">Scroll Bar 2:</label>
+	<input type="range" id="scrollbar2" name="value2" class="scrollbar" min="1" max="10" oninput="updateColor2()" value="1"><span id="value2"></span><br>
 	<p>Scroll Bar 1 last updated at {{ timestamp1 }} Central Time</p>
 	<p>Scroll Bar 2 last updated at {{ timestamp2 }} Central Time</p>
 	<script>
 		function updateColor1() {
 			var scrollbar1 = document.getElementById("scrollbar1");
 			scrollbar1.style.backgroundColor = getColor(scrollbar1.value);
+			document.getElementById("value1").innerHTML = scrollbar1.value;
+			document.getElementById("value1").style.color = getColor(scrollbar1.value);
 		}
 		function updateColor2() {
 			var scrollbar2 = document.getElementById("scrollbar2");
 			scrollbar2.style.backgroundColor = getColor(scrollbar2.value);
+			document.getElementById("value2").innerHTML = scrollbar2.value;
+			document.getElementById("value2").style.color = getColor(scrollbar2.value);
 		}
 		function getColor(value) {
-			var r = value * 25;
+			var r = (value - 1) * 25;
 			var b = 255 - r;
 			return "rgb(" + r + ", 0, " + b + ")";
 		}
