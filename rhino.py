@@ -21,7 +21,7 @@ def update():
         return render_template('output.html', value1=value1, value2=value2, color1=color1, color2=color2, timestamp1=timestamp1, timestamp2=timestamp2)
 
 def get_color(value):
-    r = value * 25
+    r = (value - 1) * 25
     b = 255 - r
     return f'rgb({r}, 0, {b})'
 
