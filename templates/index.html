@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Scroll Bars Example</title>
+	<title>What's your mood level?</title>
 	<style>
 		.scrollbar {
 			width: 300px;
@@ -19,14 +19,12 @@
 	<script>
 		function updateColor1() {
 			var scrollbar1 = document.getElementById("scrollbar1");
-			timestamp1 = datetime.datetime.now().strftime("%m/%d/%Y %I:%M %p")
 			scrollbar1.style.backgroundColor = getColor(scrollbar1.value);
 			document.getElementById("value1").innerHTML = scrollbar1.value;
 			document.getElementById("value1").style.color = getColor(scrollbar1.value);
 		}
 		function updateColor2() {
 			var scrollbar2 = document.getElementById("scrollbar2");
-			timestamp2 = datetime.datetime.now().strftime("%m/%d/%Y %I:%M %p")
 			scrollbar2.style.backgroundColor = getColor(scrollbar2.value);
 			document.getElementById("value2").innerHTML = scrollbar2.value;
 			document.getElementById("value2").style.color = getColor(scrollbar2.value);
